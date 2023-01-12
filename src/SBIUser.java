@@ -18,7 +18,7 @@ public class SBIUser implements BankInterface{
 
     @Override
     public String withdraw(int amount, String password) {
-        if(password != this.password)
+        if(!Objects.equals(password, this.password))
                 return "Invalid Password";
         if(amount <= balance) {
             balance -= amount;
